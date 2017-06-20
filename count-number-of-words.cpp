@@ -1,5 +1,8 @@
 //
 //count-number-of-words
+
+// not any concept lies in question
+//leave it
 #include <iostream>
 #include <string>
 using namespace std;
