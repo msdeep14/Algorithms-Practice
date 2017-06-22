@@ -14,9 +14,9 @@ struct node
 void insertAtBegining(struct node** headRef, int newData)
 {
     // Code here
-    if(*headRef == NULL){
-        (*headRef)->data = newData;
-        (*headRef)->next = NULL;
+    // if(*headRef == NULL){
+    //     (*headRef)->data = newData;
+    //     (*headRef)->next = NULL;
     }else{
         node *newnode = new node();
         newnode->data = newData;
@@ -91,7 +91,7 @@ int main(){
         cout<<"enter pos to delete:: \n";
         int pos;
         cin>>pos;
-        deleteNode(head,pos);
+        head = deleteNode(head,pos);
         */
 
         //search for nodevalue
