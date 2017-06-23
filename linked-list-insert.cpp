@@ -9,6 +9,9 @@ struct node
     struct node *next;
 };
 
+void deleteNodegreater(node *head){
+    //
+}
 
 // function inserts the data in front of the list
 void insertAtBegining(struct node** headRef, int newData)
