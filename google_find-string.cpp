@@ -1,6 +1,4 @@
 /*
-// https://www.careercup.com/question?id=5760697411567616
-
 Given a string and array of strings, find whether the array contains a string with one character difference
 from the given string. Array may contain string of different lengths.
 
@@ -59,10 +57,12 @@ int search(Trienode *root, string s){
             if(start + 1 == len){
                 Trienode *temp = crawl;
                 for(int k=0;k<26;k++){
-                    if(temp->child[k]) temp = temp->child[k];
-                    if(temp->child[k] && temp->isleaf == true){
-                        flag2 = 1;
-                        return 1;
+                    if(temp->child[k]){
+                        temp = temp->child[k];
+                        if(temp->isleaf == 1){
+                            flag2 = 1;
+                            return 1;
+                        }
                     }
                 }
                 if(flag2 == 0) return 0;
@@ -86,7 +86,7 @@ int search(Trienode *root, string s){
                     crawl = crawl->child[index];
                 }
             }
-            if(i == len && crawl->isleaf == true){
+            if(i == len && crawl->isleaf == 1){
                 return 1;
             }else if(check == 1){
                 crawl = prev;
@@ -107,8 +107,46 @@ int main(){
     for(int i=0;i<arr.size();i++){
         build(root,arr[i]);
     }
-    string testString = "banb";
-    int res = search(root,testString);
-    (res == 1)?(cout<<"Yes\n"):(cout<<"No\n");
+    vector<string> testarr;
+    testarr.push_back("banana");
+    testarr.push_back("bannna");
+    testarr.push_back("appl");
+    testarr.push_back("abcd");
+    for(int i=0;i<testarr.size();i++){
+        int res = search(root,testarr[i]);
+        (res == 1)?(cout<<"Yes\n"):(cout<<"No\n");
+    }
     return 0;
 }
+
+/*
+
+struct Node {
+
+    bool exist;
+    Node *children[256];
+};
+
+Node *root;
+
+bool dfs(Node *n, const string &s, int pos, int cnt) {
+    if (cnt > 1)
+        return false;
+    if (pos == s.size())
+        return cnt == 1;
+
+    for (int i = 0; i < 256; ++i) {
+        Node *c = n->children[i];
+        if (c != nullptr) {
+            if (s[pos] == i && dfs(c, s, pos + 1, cnt) ||
+                    s[pos] != i && dfs(c, s, pos + 1, cnt + 1))
+                return true;
+        }
+    }
+}
+
+bool hasSimilar(const string &s) {
+    return dfs(root, s, 0, 0);
+}
+
+*/
