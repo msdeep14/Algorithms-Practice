@@ -13,7 +13,7 @@ int main(){
         int sum = 0;
         set<int> s;
         for(int i=0;i<n;i++){
-            cin>>arr[i];
+            cin >> arr[i];
         }
         for(int i=0;i<n && flag==0;i++){
             //cin>>arr[i];
