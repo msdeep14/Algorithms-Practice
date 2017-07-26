@@ -1,5 +1,5 @@
 // CPP program to print
-// level of given node in binary tree
+// all nodes of level k
 // iterative approach
 /*
 binary tree
@@ -37,6 +37,7 @@ node * getnode(int data){
 int printkdistant(node *root, int klevel){
 	queue<node*> q;
 	int level = 1;
+	int flag = 0;
 	q.push(root);
 	// extra NULL is pushed to keep track
 	// of all the nodes to be pushed before
@@ -44,7 +45,9 @@ int printkdistant(node *root, int klevel){
 	q.push(NULL);
 	while(!q.empty()){
 		node *temp = q.front();
+		// print when level is equal to k
 		if(level == klevel && temp != NULL){
+			flag = 1;
 			cout << temp->data << " "; 
 		}
 		q.pop();
@@ -68,7 +71,7 @@ int printkdistant(node *root, int klevel){
 		}
 	}
 	cout << endl;
-	if(klevel > level)
+	if(flag == 0)
 		return 0;
 	else return 1;
 }
