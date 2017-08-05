@@ -1,0 +1,7 @@
+enter x::
+out::1
+data at level 1 : 20 
+data at level 2 : 10 30 
+data at level 3 : 5 15 25 40 
+data at level 6 : 
+levels in tree are less than number you given

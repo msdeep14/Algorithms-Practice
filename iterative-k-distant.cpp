@@ -77,6 +77,10 @@ int printkdistant(node *root, int klevel){
 }
 int main(){
 	// create a binary tree
+	int x;
+	cout<<"enter x::\n";
+	cin>>x;
+	cout<<"out::"<<x<<endl;
 	node *root = getnode(20);
 	root->left = getnode(10);
 	root->right = getnode(30);

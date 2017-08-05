@@ -1,9 +1,3 @@
-/*
- Given two integers n and m. Find the longest contiguous subset in binary representation of both the numbers.
-Ex: n and m are 10 and 11. Their binary representation is 1010 and 1011. Longest contiguous substring in both is 101 and the longest contiguous subset is the value of 101 which is 5.
-
-*/
-
 // CPP program to find longest contiguous
 // subset in binary representation of given
 // two numbers n and m
@@ -66,13 +60,15 @@ int getDecimal(string s){
 // driver program
 int main(){
 	int n,m;
-	n = 10;
-	m = 11;
+	n = 8;
+	m = 16;
 	string s1 = convertToBinary(n);
 	string s2 = convertToBinary(m);
+	if(n == 0)s1.push_back('0');
+	if(m == 0) s2.push_back('0');
 	getString(s1,s2);
 	 cout<<"longest string :: "<<res<<endl;
 	 int ans = getDecimal(res);
-	cout<<"decimal value  :: "<<ans<<endl;
+	if(res != "")cout<<"decimal value  :: "<<ans<<endl;
 	return 0;
 }
