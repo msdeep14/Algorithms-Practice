@@ -51,7 +51,7 @@ string findFirstRepeated(string s){
 
 // driver program
 int main(){
-	string s("he had had he");
+	string s("Ravi had been saying that he had been there");
 	string firstWord = findFirstRepeated(s);
 	if(firstWord != "NoRepetition") 
 		cout << "first repeated word :: " << firstWord << endl;
