@@ -34,6 +34,38 @@ void inorder(Node *root){
 		if(!root && s.empty())
 			break;
 	}
+	cout << endl;
+}
+
+void preorder(Node *root){
+	stack<Node *> s;
+	s.push(root);
+	while(!s.empty()){
+		Node *temp = s.top();
+		s.pop();
+		cout << temp->data << " ";
+		if(temp->right) s.push(temp->right);
+		if(temp->left) s.push(temp->left);
+	}
+	cout << endl;
+}
+
+void postorder(Node *root){
+	stack<Node*> s1,s2;
+	s1.push(root);
+	while(!s1.empty()){
+		Node *temp = s1.top();
+		s1.pop();
+		s2.push(temp);
+		if(temp->left) s1.push(temp->left);
+		if(temp->right) s1.push(temp->right);
+	}
+	while(!s2.empty()){
+		Node *temp = s2.top();
+		s2.pop();
+		cout << temp->data << " ";
+	}
+	cout << endl;
 }
 
 int main(){
@@ -43,5 +75,7 @@ int main(){
 	root->left->left = getNode(4);
 	root->left->right = getNode(5);
 	inorder(root);
+	preorder(root);
+	postorder(root);
 	return 0;
 }
