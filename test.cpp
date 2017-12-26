@@ -1,16 +1,11 @@
+// test.cpp
 #include <bits/stdc++.h>
 using namespace std;
 
 int main(){
-	int n = 16;
-	string res;
-	while(n>0){
-		char ch = n%2 + 48;
-		//cout<< ch<<" ";
-		res.push_back(ch);
-		n/=2;
-	}
-	reverse(res.begin(),res.end());
-	cout << res << endl;
-	return 0;
+	int arr[] = {2,3,7,6,8,-1,-10,-15};
+	int n = sizeof(arr)/sizeof(arr[0]);
+	separate(arr,n);
+
+	
 }
