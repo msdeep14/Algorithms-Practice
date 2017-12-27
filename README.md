@@ -1,3 +1,3 @@
-# geeksforgeeks practice
+# Algorithms practice
 
-My solutions to problem of [geeksforgeeks](http://www.geeksforgeeks.org/) portal
+This repository contains solutions to popular interview questions.
