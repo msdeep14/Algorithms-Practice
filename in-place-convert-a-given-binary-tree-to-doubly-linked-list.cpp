@@ -31,6 +31,16 @@ Node *convertToDLL(Node *root){
 	return root;
 }
 
+void btoDLL(Node *root, Node **head){
+	if(!root) return;
+	btoDLL(root->right, head);
+	root->right = *head;
+	if(*head)
+		(*head)->left = root;
+	*head = root;
+	btoDLL(root->left, head);
+}
+
 
 int main(){
     Node * root = getnewnode(10);
@@ -39,6 +49,7 @@ int main(){
     root->left->left = getnewnode(25);
     root->left->right = getnewnode(30);
     root->right->left = getnewnode(36);
+    
 
     Node *res = convertToDLL(root);
     while(res->left)
@@ -47,6 +58,15 @@ int main(){
     while(res){
     	cout << res->data << " ";
     	res = res->right;
+    }
+    cout << endl;
+
+    Node *head = NULL;
+    btoDLL(root, &head);
+    Node *temp = head;
+    while(temp){
+    	cout << temp->data << " ";
+    	temp = temp->right;
     }
     return 0;
 }
